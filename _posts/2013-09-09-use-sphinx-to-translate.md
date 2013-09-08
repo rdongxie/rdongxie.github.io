@@ -10,21 +10,30 @@ reStructuredText是文本标记语言--和markdown相似,现在很多项目使�
 Sublime Text2官方网站给出的第三方文档：https://github.com/guillermooo/sublime-undocs ，
 reStructuredText是python的工具包docutils为文档编写设计的标记语言。
 reStructuredText官方网站： http://docutils.sourceforge.net/rst.html
+
 维基百科：http://zh.wikipedia.org/zh-cn/ReStructuredText‎
+
 其他网站：http://wstudio.web.fc2.com/others/restructuredtext.html‎
+
 http://sphinx-doc-zh.readthedocs.org/en/latest/rest.html
 
 
 ### 2.关于GNU gettext
-Windows: http://gnuwin32.sourceforge.net/packages/gettext.htm
+
 Gettext 用于系统的国际化(I18N)和本地化(L10N),可以在编译程序的时候使用本国语言支持(Native Language Support(NLS)),其可以使程序的输出使用用户设置。
+
+Windows: http://gnuwin32.sourceforge.net/packages/gettext.htm
+
 官方网站：http://www.gnu.org/software/gettext/
+
 tips:gettext中支持的语言包括RST，这个RST并非reStructuredText标记语言，指的是Resource String Table,
 
 
 ### 3.Sphinx 
 这个Sphinx并不是搜索引擎，而是文档产生工具。
+
 官方网站：http://sphinx-doc.org
+
 国际化：http://sphinx-doc.org/intl.html
 
 使用Sphinx步骤：
@@ -58,5 +67,9 @@ pip install Sphinx 或者：easy_install -U Sphinx
 	sphinx-build -Dlanguage=zh_CN -b html ./source ./zhCNhtml
 
 ### 3todolist:
+
 1.rst文件变更后生成pot，po的merge
+
 2.细节修正
+
+3.....
