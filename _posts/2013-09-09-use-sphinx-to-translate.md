@@ -11,16 +11,15 @@ reStructuredText是文本标记语言--和markdown相似,现在很多项目使�
 Sublime Text2官方网站给出的第三方文档：https://github.com/guillermooo/sublime-undocs ，  
 reStructuredText是python的工具包docutils为文档编写设计的标记语言。  
 reStructuredText官方网站： http://docutils.sourceforge.net/rst.html  
-
 维基百科：http://zh.wikipedia.org/zh-cn/ReStructuredText‎  
 其他网站：http://wstudio.web.fc2.com/others/restructuredtext.html‎  
 http://sphinx-doc-zh.readthedocs.org/en/latest/rest.html
 
 ### 2.关于GNU gettext
 
-Gettext 用于系统的国际化(I18N)和本地化(L10N),可以在编译程序的时候使用本国语言支持(Native Language Support(NLS)),其可以使程序的输出使用用户设置。
-Windows: http://gnuwin32.sourceforge.net/packages/gettext.htm
-官方网站：http://www.gnu.org/software/gettext/
+Gettext 用于系统的国际化(I18N)和本地化(L10N),可以在编译程序的时候使用本国语言支持(Native Language Support(NLS)),  
+其可以使程序的输出使用用户设置。Windows: http://gnuwin32.sourceforge.net/packages/gettext.htm  
+官方网站：http://www.gnu.org/software/gettext/  
 tips:gettext中支持的语言包括RST，这个RST并非reStructuredText标记语言，指的是Resource String Table,
 
 
