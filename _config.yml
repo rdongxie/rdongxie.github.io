@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-name: Your New Jekyll Site
-=======
 name: Red's Blog
->>>>>>> 8e212dbeb4d6cba8a3a31cddfd2bff9e539782c8
 markdown: redcarpet
 pygments: true
