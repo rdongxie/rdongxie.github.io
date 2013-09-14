@@ -10,7 +10,9 @@ categories: erlang
 
 # 2.第二章
 注释：单行注释,%后面的一行都是注释会被erlang忽略  
-`% just a comment...`
+
+	% just a comment...
+
 在erlang的shell中可以使用ctrl+p和ctrl+n切换之前(后)的输入
 
 ## erlang shell使用
@@ -20,13 +22,13 @@ _是一个匿名变量，真正的变量。
 以大写字母开头都是变量？
 
 ## 2.7浮点数
-`
-5/3. %1.66667  
-4/2. %2.00000  
-5 div 3. %1  
-5 rem 3. %2  
-5 div 2. %2  
-`
+
+	5/3. %1.66667  
+	4/2. %2.00000  
+	5 div 3. %1
+	5 rem 3. %2  
+	5 div 2. %2  
+
 
 ## 2.8原子
 ruby中的symbol吗？  
@@ -63,14 +65,122 @@ python中的列表？ruby中的列表？
 ###3.6.3变位词
 递归
 ##3.7算术表达式
-
+<img src="/img/er-operation.jpg">
 ##3.8断言
+###3.8.1断言序列
+###3.8.2断言样例
+
+	f(X) when (X==0) or (1/X > 2) -> %X=0 false
+	g(X) when (X==0) orelse (1/X > 2) ->%X=0 true
+
+###3.8.3true断言的使用
+###3.8.4过时的断言函数
 ##3.9记录
+###3.9.4记录只是元组的伪装
+
 ##3.10case/if表达式
+###3.10.1case表达式
+
+	case Expression of
+		Pattern1 [when Guard1] -> Expr_seq1;
+		Pattern2 [when Gurad2] -> Expr_seq2;
+	end
+
+	filter(P, [H|T]) -> filter1(P(H),H,P,T);
+	filter(p, []) ->[].
+	filter1(true, H, P, T) -> [H | filter(P, T)];
+	filter1(false, H, P, T) -> filter(P, T).
+
+	filter(P, [H | T]) -> 
+		case P(H) of
+			true  -> [H | filter(P, T)];
+			false -> filter(P, T)
+		end;
+	filter(P,[]) -> [].
+
+###3.10.2 if表达式
+
+	if
+		Guard1 -> Expr_seq1;
+		Guard2 -> Expr_seq2;
+		true -> Expr_seq3; %best practice,
+	end.
+
 ##3.11以自然顺序创建列表
+真心不明白这节说的什么玩意，就知道要反转一个列表要调用lists:reverse/1
+
 ##3.12累加器
 
+#4. 异常
+##4.1 异常
+	cost(apples) -> 3;
+	cost(oranges) -> 8;
+	cost(newspaper) -> 9.
 
+	cost(stock).
+
+这个时候会抛出异常，cost函数没有必要处理异常，因为cost不知道如何处理，所以直接抛出
+
+抛出异常：
+1.系统内部错误  
+2.在代码中显示调用throw(Exception)、exit(Exception)、erlang:error(Exception)
+
+捕获异常：  
+1.用try...catch将一个会抛出异常的函数括起来  
+2.把函数调用包含在catch表达式里.  
+
+##4.2抛出异常
+系统内部错误  
+exit()  
+throw()  
+erlang:error()  
+
+##4.3try...catch
+
+##4.4 catch
+dont understand totally
+
+##4.5 
+
+
+#7.并发
+全是描述erlang并发原理(对真实世界并发的抽象)的文字。  
+一个erlang程序使用很多进程组成，这些进程没有共享内存，进程(这里的进程是erlang的概念，并不是操作系统的概念)间的交流都是通过  
+消息来传递，并且发送消息的进程并不知道其他进程是否已经收到消息，必须发送消息去询问。  当一个进程消亡时它会广播给和它有关系的进程。并且把消亡原因告诉这些有  
+关系的进程。 当然进程也可以产生子进程，这个对应的专业术语是spawn。  
+messages  
+pids  
+send !  
+recive
+spawn  
+
+#8.并发编程
+##8.1并发原语
+	Pid = spawn(Fun)  
+	Pid1!Pid2!Pid3!Pid4!...!M  
+	recive  
+	Pattern1 [Guard1] ->
+	Expression1  
+	Pattern2 [Guard2] ->
+	Expression2
+	...
+end.
+##8.2简单样例
+	
+	-module(area_server0).
+	-export([loop/0]).
+	loop() ->
+		recive
+			{rectangle, Width, Ht} ->
+				io:format("Area of rectangle is ~p~n",[Width, Ht]),
+				loop();
+			{circle, R} ->
+				io:format("Area of circle is ~p~n", [3.14159 * R * R]),
+				loop();
+			Other ->
+				io:format("i dont know what the area of a ~p is ~n", [Other]),
+				loop()
+		end.
 
 http://www.oschina.net/news/44153/try-10-programming-languages-in-10-minutes  
 http://www.google.com.hk/search?newwindow=1&safe=strict&biw=1440&bih=762&noj=1&q=iops&oq=iops&gs_l=serp.3...122466.124056.0.124225.4.4.0.0.0.0.0.0..0.0....0...1c.1.26.serp..4.0.0.oLZrqqKsjdI  
