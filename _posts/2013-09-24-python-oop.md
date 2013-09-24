@@ -108,6 +108,6 @@ categories: python
 所以对于这个例子来说，value在类C中被查找到，所以它的值将会是3。  
 
 # 参考资料
-http://docs.python.org/2.7/
-http://docs.python.org/3/
+http://docs.python.org/2.7/  
+http://docs.python.org/3/  
 
