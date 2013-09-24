@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Python 面向对象编程"
-date:   2013-09-23 11:06:57
+date:   2013-09-24 15:35:57
 categories: python
 ---
 
