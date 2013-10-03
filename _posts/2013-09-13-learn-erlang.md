@@ -181,6 +181,33 @@ end.
 				io:format("i dont know what the area of a ~p is ~n", [Other]),
 				loop()
 		end.
+##8.3客户/服务机器介绍
+
+	-module(area_server_final).
+	-export([start/0, area/2]).	
+
+	start() -> spawn(fun loop/0).	
+
+	area(Pid, What) -> rpc(Pid, What).	
+
+	rpc(Pid, Request) ->
+		Pid ! {self(), Request};
+		recive
+			{Pid, Response} -> Response;
+	end.	
+
+	loop() -> 
+		recive 
+		{From, {rectangle, Width, Ht}} -> From ! {self(), Width * Ht}, loop();
+		{From, {circle, R}} -> From ! {self(), R * R}, loop();
+		{From, Other} -> From ! {self(), {errro, Other}}, loop()
+	end.
+
+	Pid=area_server_final:start().
+	area_server_final:area(Pid, {rectangle, 6, 10}).
+	area_server_final:area(Pid, {circle, 4, 8}).
+##8.4创建一个进程要花花费多少时间
+
 
 http://www.oschina.net/news/44153/try-10-programming-languages-in-10-minutes  
 http://www.google.com.hk/search?newwindow=1&safe=strict&biw=1440&bih=762&noj=1&q=iops&oq=iops&gs_l=serp.3...122466.124056.0.124225.4.4.0.0.0.0.0.0..0.0....0...1c.1.26.serp..4.0.0.oLZrqqKsjdI  
